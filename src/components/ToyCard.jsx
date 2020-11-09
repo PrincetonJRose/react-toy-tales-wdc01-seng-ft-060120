@@ -1,18 +1,20 @@
-import React, { Component } from 'react';
+import React, { } from 'react';
 
-class ToyCard extends Component {
+const ToyCard =( props )=> {
 
-  render() {
-    return (
-      <div className="card">
-        <h2>{'' /* Toy's Name */}</h2>
-        <img src={'' /* Toy's Image */} alt={'' /* Toy's Name */} className="toy-avatar" />
-        <p>{'' /* Toy's Likes */} Likes </p>
-        <button className="like-btn">Like {'<3'}</button>
-        <button className="del-btn">Donate to GoodWill</button>
-      </div>
-    );
-  }
+  const { name, image, likes } = props.toy
+
+  return (
+    <div className="card">
+      <h2>{ name /* Toy's Name */}</h2>
+      <img src={ image /* Toy's Image */} alt={'' /* Toy's Name */} className="toy-avatar" />
+      <p>{ likes /* Toy's Likes */} Likes </p>
+      <button className="like-btn"
+        onClick = { () => props.increaseLikes( props.toy ) }
+      >Like {'<3'}</button>
+      <button className="del-btn">Donate to GoodWill</button>
+    </div>
+  );
 
 }
 
